@@ -1,12 +1,13 @@
-
 -- Vim startup settings
-vim.cmd("set ignorecase")
-vim.cmd("set autoindent")
-vim.cmd("set nowrap")
-vim.cmd("set textwidth=95")
-vim.cmd("set colorcolumn=-2")
-vim.cmd("set shiftwidth=2 tabstop=2")
-vim.cmd("set tm=100")
-vim.cmd("set number relativenumber")
+vim.opt.ignorecase = true
+vim.opt.autoindent = true
+vim.opt.wrap = false
+vim.opt.textwidth = 95
+vim.opt.colorcolumn = "-2"
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.tm = 100
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme("catppuccin")
