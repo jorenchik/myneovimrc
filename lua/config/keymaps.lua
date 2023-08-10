@@ -20,7 +20,12 @@ vim.keymap.set("n", "<Leader>cm", "<cmd>Mason<cr>", { desc = "mason" })
 vim.keymap.set("n", "<Leader>cf", "<cmd>Format<cr>", { desc = "Format the buffer" })
 vim.keymap.set("n", "<Leader>cc", "<cmd>:Cheatsheet<cr>", { desc = "VIM cheatsheet" })
 vim.keymap.set("n", "<Leader>cc", "<cmd>:Cheatsheet<cr>", { desc = "VIM cheatsheet" })
-vim.keymap.set("n", "<Leader>ce", "<cmd>lua require('swenv.api').pick_venv()<cr>", { desc = "Choose virtual environment" })
+vim.keymap.set(
+	"n",
+	"<Leader>ce",
+	"<cmd>lua require('swenv.api').pick_venv()<cr>",
+	{ desc = "Choose virtual environment" }
+)
 
 -- Neotree
 vim.keymap.set("n", "<Leader>ex", "<cmd>Neotree toggle<cr>", { desc = "Tree (current directory)" })
@@ -91,6 +96,4 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-
 vim.keymap.set("i", "<C-s>", "<Esc><cmd>w<CR>")
-
