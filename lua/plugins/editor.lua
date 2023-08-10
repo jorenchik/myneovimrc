@@ -197,10 +197,8 @@ return {
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		"mhartington/formatter.nvim",
-		config = function(_, opts)
-			require("formatter").setup(opts)
-		end,
-		opts = {
+		config = function(_)
+			require("formatter").setup({
 			-- Enable or disable logging
 			logging = true,
 			-- Set the log level
@@ -222,66 +220,46 @@ return {
 							return nil
 						end
 
-						-- Full specification of configurations is down below and in Vim help
-						-- files
-						return {
-							exe = "stylua",
-							args = {
-								"--search-parent-directories",
-								"--stdin-filepath",
-								util.escape_path(util.get_current_buffer_file_path()),
-								"--",
-								"-",
-							},
-							stdin = true,
-						}
-					end,
+							-- Full specification of configurations is down below and in Vim help
+							-- files
+							return {
+								exe = "stylua",
+								args = {
+									"--search-parent-directories",
+									"--stdin-filepath",
+									util.escape_path(util.get_current_buffer_file_path()),
+									"--",
+									"-",
+								},
+								stdin = true,
+							}
+						end,
+					},
+					python = {
+						function()
+							local util = require("formatter.util")
+							require("notify")(util.escape_path(util.get_current_buffer_file_path()))
+							return {
+								exe = "black",
+								args = {
+									"-l 79",
+									"--stdin-filename",
+									util.escape_path(util.get_current_buffer_file_path()),
+									"--",
+									"-",
+								},
+								stdin = true,
+							}
+						end,
+					},
+					["*"] = {
+						-- "formatter.filetypes.any" defines default configurations for any
+						require("formatter.filetypes.any").remove_trailing_whitespace,
+					},
 				},
-				python = {
-					function()
-						local util = require("formatter.util")
-						require("notify")(util.escape_path(util.get_current_buffer_file_path()))
-						return {
-							exe = "black",
-							args = {
-								"-l 79",
-								"--stdin-filename",
-								util.escape_path(util.get_current_buffer_file_path()),
-								"--",
-								"-",
-							},
-							stdin = true,
-						}
-					end,
-				},
-				html = {
-					function()
-						local util = require("formatter.util")
-						require("notify")(util.escape_path(util.get_current_buffer_file_path()))
-						return {
-							exe = "djlint",
-							args = {
-								-- "--stdin-filename",
-								util.escape_path(util.get_current_buffer_file_path()),
-								"--reformat",
-								"--",
-								"-",
-							},
-							stdin = true,
-						}
-					end,
-				},
-
-				-- Use the special "*" filetype for defining formatter configurations on
-				-- any filetype
-				["*"] = {
-					-- "formatter.filetypes.any" defines default configurations for any
-					-- filetype
-					-- require("formatter.filetypes.any").remove_trailing_whitespace,
-				},
-			},
-		},
-	},
+			})
+		end,
+    },
 	{ "tpope/vim-fugitive" },
 	{ "mbbill/undotree" },
 }
