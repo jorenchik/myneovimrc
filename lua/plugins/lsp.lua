@@ -23,11 +23,6 @@ return {
 					lsp.default_keymaps({ buffer = bufnr })
 				end)
 
-				lsp.ensure_installed({
-					-- Replace these with whatever servers you want to install
-					"pyright",
-				})
-
 				lsp.nvim_workspace()
 
 				local cmp = require("cmp")
