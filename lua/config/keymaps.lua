@@ -17,7 +17,7 @@ wk.register({
 
 -- code
 vim.keymap.set("n", "<Leader>cm", "<cmd>Mason<cr>", { desc = "mason" })
-vim.keymap.set("n", "<Leader>cf", "<cmd>Format<cr>", { desc = "Format the buffer" })
+vim.keymap.set("n", "<Leader>cf", "<cmd>Neoformat<cr>", { desc = "Format the buffer" })
 vim.keymap.set("n", "<Leader>cc", "<cmd>:Cheatsheet<cr>", { desc = "VIM cheatsheet" })
 vim.keymap.set("n", "<Leader>cc", "<cmd>:Cheatsheet<cr>", { desc = "VIM cheatsheet" })
 vim.keymap.set(
@@ -29,7 +29,7 @@ vim.keymap.set(
 
 -- Neotree
 vim.keymap.set("n", "<Leader>ex", "<cmd>Neotree toggle<cr>", { desc = "Tree (current directory)" })
-vim.keymap.set("n", "<Leader><F3>", "<cmd>Format<cr>", { desc = "Format the buffer" })
+vim.keymap.set("n", "<Leader><F3>", "<cmd>Neoformat<cr>", { desc = "Format the buffer" })
 
 -- buffers
 vim.keymap.set("n", "<C-s>", "<cmd>:w<cr>", { desc = "Write to the buffer" })
