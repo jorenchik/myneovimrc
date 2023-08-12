@@ -17,6 +17,12 @@ wk.register({
 
 -- code
 vim.keymap.set("n", "<Leader>cm", "<cmd>Mason<cr>", { desc = "mason" })
+vim.api.nvim_set_keymap(
+	"v",
+	"<leader>cf",
+	'<cmd>execute "Neoformat! " . &filetype<CR>',
+	{ desc="Format the selection", noremap = true, silent = true }
+)
 vim.keymap.set("n", "<Leader>cf", "<cmd>Neoformat<cr>", { desc = "Format the buffer" })
 vim.keymap.set("n", "<Leader>cc", "<cmd>:Cheatsheet<cr>", { desc = "VIM cheatsheet" })
 vim.keymap.set("n", "<Leader>cc", "<cmd>:Cheatsheet<cr>", { desc = "VIM cheatsheet" })
