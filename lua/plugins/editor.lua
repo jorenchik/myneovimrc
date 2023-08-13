@@ -197,5 +197,5 @@ return {
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "tpope/vim-fugitive" },
 	{ "mbbill/undotree" },
-    { "sbdchd/neoformat"},
+    { "sbdchd/neoformat" },
 }

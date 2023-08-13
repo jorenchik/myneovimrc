@@ -63,5 +63,6 @@ local defaults = {
 require("config.lazy")
 require("config.keymaps")
 require("config.set")
+require("plugins.formatter")
 
 return defaults
