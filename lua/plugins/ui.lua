@@ -1,7 +1,6 @@
 vim.opt.termguicolors = true
 
 return {
-	-- Better `vim.notify()`
 	{
 		"rcarriga/nvim-notify",
 		keys = {
@@ -23,7 +22,6 @@ return {
 			end,
 		},
 		init = function()
-			-- when noice is not enabled, install notify on VeryLazy
 			local Util = require("util")
 			if not Util.has("noice.nvim") then
 				Util.on_very_lazy(function()
@@ -33,7 +31,6 @@ return {
 		end,
 	},
 
-	-- better vim.ui
 	{
 		"stevearc/dressing.nvim",
 		lazy = true,
@@ -51,8 +48,6 @@ return {
 		end,
 	},
 
-	-- This is what powers LazyVim's fancy-looking
-	-- tabs, which include filetype icons and close buttons.
 	{
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
@@ -169,7 +164,6 @@ return {
 		end,
 	},
 
-	-- indent guides for Neovim
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "BufReadPost", "BufNewFile" },
@@ -193,9 +187,6 @@ return {
 		},
 	},
 
-	-- Active indent guide and indent text objects. When you're browsing
-	-- code, this highlights the current level of indentation, and animates
-	-- the highlighting.
 	{
 		"echasnovski/mini.indentscope",
 		version = false, -- wait till new 0.7.0 release to put it back on semver
@@ -269,21 +260,11 @@ return {
     },
 	},
 
-	-- Dashboard. This runs when neovim starts, and is what displays
-	-- the "LAZYVIM" banner.
 	{
 		"goolord/alpha-nvim",
 		event = "VimEnter",
 		opts = function()
 			local dashboard = require("alpha.themes.dashboard")
-			-- local logo = [[
-			--         ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
-			--         ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z
-			--         ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z
-			--         ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z
-			--         ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║
-			--         ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝
-			--    ]]
 			local logo = [[]]
 
 			dashboard.section.header.val = vim.split(logo, "\n")
@@ -333,9 +314,6 @@ return {
 		end,
 	},
 
-	-- lsp symbol navigation for lualine. This shows where
-	-- in the code structure you are - within functions, classes,
-	-- etc - in the statusline.
 	{
 		"SmiteshP/nvim-navic",
 		lazy = true,
@@ -357,10 +335,8 @@ return {
 		end,
 	},
 
-	-- icons
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 
-	-- ui components
 	{ "MunifTanjim/nui.nvim", lazy = true },
 	{
 		"sudormrfbin/cheatsheet.nvim",
