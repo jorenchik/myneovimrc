@@ -8,8 +8,21 @@ wk.register({
 	["x"] = { name = "+todo/fix/fixme (trouble)" },
 	["c"] = { name = "+code" },
 	["u"] = { name = "+colorscheme" },
-	["s"] = { name = "+search" },
-	["v"] = { name = "+vim" },
+	["s"] = { ["c"] = {
+		name = "noice",
+	}, name = "+search" },
+	["v"] = {
+		["c"] = {
+			name = "code",
+		},
+		["w"] = {
+			name = "workspace",
+		},
+		["r"] = {
+			name = "names",
+		},
+		name = "+vim",
+	},
 	["g"] = { name = "+git" },
 	["b"] = { name = "+buffers" },
 	["w"] = { name = "+windows" },
@@ -24,18 +37,11 @@ vim.keymap.set(
 	{ desc = "Format the selection", noremap = true, silent = true }
 )
 vim.keymap.set("n", "<Leader>cf", "<cmd>Neoformat<cr>", { desc = "Format the buffer" })
+vim.keymap.set("n", "<Leader><F3>", "<cmd>Neoformat<cr>", { desc = "Format the buffer" })
 vim.keymap.set("n", "<Leader>cc", "<cmd>:Cheatsheet<cr>", { desc = "VIM cheatsheet" })
-vim.keymap.set("n", "<Leader>cc", "<cmd>:Cheatsheet<cr>", { desc = "VIM cheatsheet" })
-vim.keymap.set(
-	"n",
-	"<Leader>ce",
-	"<cmd>lua require('swenv.api').pick_venv()<cr>",
-	{ desc = "Choose virtual environment" }
-)
 
 -- Neotree
 vim.keymap.set("n", "<Leader>ex", "<cmd>Neotree toggle<cr>", { desc = "Tree (current directory)" })
-vim.keymap.set("n", "<Leader><F3>", "<cmd>Neoformat<cr>", { desc = "Format the buffer" })
 
 -- buffers
 vim.keymap.set("n", "<C-s>", "<cmd>:w<cr>", { desc = "Write to the buffer" })
@@ -63,7 +69,7 @@ vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decreas
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- terminal
-vim.keymap.set("n", "<leader>ft", "<cmd>:tab term<cr>", { desc = "Terminal" })
+vim.keymap.set("n", "<leader>vt", "<cmd>:tab term<cr>", { desc = "Terminal" })
 vim.keymap.set("t", "<C-x>", "<C-Bslash><C-n>", { desc = "Close terminal", remap = true })
 
 -- Explore
@@ -82,24 +88,11 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- greatest remap ever
+-- Smart copy-delete
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("x", "<leader>p", [["_dP]])
--- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
-
--- This is going to get me cancelled
-vim.keymap.set("i", "<C-c>", "<Esc>")
-
-vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-
+-- Escape and save
 vim.keymap.set("i", "<C-s>", "<Esc><cmd>w<CR>")

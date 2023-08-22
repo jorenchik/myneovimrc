@@ -65,7 +65,7 @@ return {
 			{ "<leader>sw", Util.telescope("grep_string"), mode = "v", desc = "Selection (root dir)" },
 			{ "<leader>sW", Util.telescope("grep_string", { cwd = false }), mode = "v", desc = "Selection (cwd)" },
 			{
-				"<leader>vC",
+				"<leader>cC",
 				Util.telescope("colorscheme", { enable_preview = true }),
 				desc = "Colorscheme with preview",
 			},
