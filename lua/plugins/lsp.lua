@@ -44,6 +44,7 @@ return {
 				})
 
 				require("luasnip").filetype_extend("html", { "djangohtml" })
+				require("luasnip").filetype_extend("htmldjango", { "html" })
 
 				cmp.setup({
 					sources = {
