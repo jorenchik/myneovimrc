@@ -1,5 +1,6 @@
 return {
 	{
+		{ "evanleck/vim-svelte", branch = "main" },
 		{
 			"VonHeikemen/lsp-zero.nvim",
 			branch = "v2.x",
