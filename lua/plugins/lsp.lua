@@ -1,6 +1,9 @@
 return {
 	{
-		{ "evanleck/vim-svelte", branch = "main" },
+		{ "pangloss/vim-javascript" },
+		{ "maxmellon/vim-jsx-pretty" },
+		{ "w0rp/ale" },
+		{ "burner/vim-svelte" },
 		{
 			"VonHeikemen/lsp-zero.nvim",
 			branch = "v2.x",
