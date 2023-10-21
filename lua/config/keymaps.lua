@@ -96,3 +96,11 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Escape and save
 vim.keymap.set("i", "<C-s>", "<Esc><cmd>w<CR>")
+
+-- LaTeX preview
+vim.keymap.set(
+	"n",
+	"<leader>lc",
+	"<cmd>lua compile_latex_from_config()<CR>",
+	{ noremap = true, silent = true, desc = "Compile the entry LaTeX file of the document." }
+)
