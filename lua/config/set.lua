@@ -22,4 +22,4 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
-vim.cmd.colorscheme("nightfly")
+vim.cmd.colorscheme("nightfox")
